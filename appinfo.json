@@ -59,6 +59,7 @@
   "sdkVersion": "3",
   "shortName": "Minimalin",
   "targetPlatforms": [
+    "aplite",
     "basalt",
     "chalk"
   ],

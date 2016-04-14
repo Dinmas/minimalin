@@ -139,6 +139,23 @@ static const int ICON_OFFSET = -18;
 static const int TICK_STROKE = 2;
 static const int TICK_LENGTH = 6;
 #define CONF_SIZE 12
+
+#ifdef PBL_PLATFORM_APLITE
+static ConfValue CONF_DEFAULTS[CONF_SIZE] = {
+  { .key = ConfigKeyMinuteHandColor, .type = ColorConf, .value = { .integer = 0xffffff } },
+  { .key = ConfigKeyHourHandColor, .type = ColorConf, .value = { .integer = 0xffffff } },
+  { .key = ConfigKeyBackgroundColor, .type = ColorConf, .value = { .integer = 0x000000 } },
+  { .key = ConfigKeyDateColor, .type = ColorConf, .value = { .integer = 0xffffff } },
+  { .key = ConfigKeyTimeColor, .type = ColorConf, .value = { .integer = 0xffffff } },
+  { .key = ConfigKeyInfoColor, .type = ColorConf, .value = { .integer = 0xffffff } },
+  { .key = ConfigKeyBluetoothIcon, .type = IntConf, .value = { .integer = Bluetooth } },
+  { .key = ConfigKeyTemperatureUnit, .type = IntConf, .value = { .integer = Celsius } },
+  { .key = ConfigKeyRefreshRate, .type = IntConf, .value = { .integer = 20 } },
+  { .key = ConfigKeyDateDisplayed, .type = BoolConf, .value = { .boolean = true } },
+  { .key = ConfigKeyRainbowMode, .type = BoolConf, .value = { .boolean = false } },
+  { .key = ConfigKeyWeatherEnabled, .type = BoolConf, .value = { .boolean = true } }
+};
+#else
 static ConfValue CONF_DEFAULTS[CONF_SIZE] = {
   { .key = ConfigKeyMinuteHandColor, .type = ColorConf, .value = { .integer = 0xffffff } },
   { .key = ConfigKeyHourHandColor, .type = ColorConf, .value = { .integer = 0xff0000 } },
@@ -153,6 +170,7 @@ static ConfValue CONF_DEFAULTS[CONF_SIZE] = {
   { .key = ConfigKeyRainbowMode, .type = BoolConf, .value = { .boolean = false } },
   { .key = ConfigKeyWeatherEnabled, .type = BoolConf, .value = { .boolean = true } }
 };
+#endif
 
 static Window * s_main_window;
 static Layer * s_root_layer;
